@@ -1,0 +1,62 @@
+
+$countryCode=de
+$storeUid=jw_eu_$countryCode_store
+$contentCatalog=jw_eu_$countryCode_ContentCatalog
+$catalogVersion=catalogversion(catalog(id[default=$contentCatalog]),version[default='Staged'])[unique=true,default=$contentCatalog:Staged];;;;;;;;;
+$storeImage=storeImage(qualifier, $catalogVersion)
+
+
+$standardHours=JW_EU-standard-hours
+$weekendHours=JW_EU-weekend-hours
+
+INSERT_UPDATE OpeningSchedule;code[unique=true];
+                             ;$standardHours;
+                             ;$weekendHours;
+
+INSERT_UPDATE WeekdayOpeningDay;openingSchedule(code)[unique=true];dayOfWeek(code)[unique=true];openingTime[dateformat=hh:mm];closingTime[dateformat=hh:mm];
+                               ;$standardHours;MONDAY   ; 09:00; 20:00
+                               ;$standardHours;TUESDAY  ; 09:00; 20:00
+                               ;$standardHours;WEDNESDAY; 09:00; 20:00
+                               ;$standardHours;THURSDAY ; 09:00; 20:00
+                               ;$standardHours;FRIDAY   ; 09:00; 20:00
+                               ;$standardHours;SATURDAY ; 10:00; 20:00
+                               ;$standardHours;SUNDAY   ; 08:00; 21:00
+
+                               ;$weekendHours;MONDAY   ; 09:00; 20:00
+                               ;$weekendHours;TUESDAY  ; 09:00; 20:00
+                               ;$weekendHours;WEDNESDAY; 09:00; 20:00
+                               ;$weekendHours;THURSDAY ; 09:00; 20:00
+                               ;$weekendHours;FRIDAY   ; 09:00; 20:00
+                               ;$weekendHours;SATURDAY ; 10:00; 20:00
+                               ;$weekendHours;SUNDAY   ; 08:00; 21:00
+
+INSERT_UPDATE SpecialOpeningDay;openingSchedule(code)[unique=true];date[unique=true,dateformat=dd.MM.yyyy];closed;openingTime[dateformat=hh:mm];closingTime[dateformat=hh:mm]
+                               ;$standardHours; 01.01.2014 ;true
+                               ;$standardHours; 29.03.2014 ;true
+                               ;$standardHours; 01.04.2014 ;true
+                               ;$standardHours; 01.05.2014 ;true
+                               ;$standardHours; 09.05.2014 ;true
+                               ;$standardHours; 20.05.2014 ;true
+                               ;$standardHours; 03.10.2014 ;true
+                               ;$standardHours; 25.12.2014 ;true
+                               ;$standardHours; 26.12.2014 ;true
+
+                               ;$weekendHours; 01.01.2014 ;true
+                               ;$weekendHours; 29.03.2014 ;true
+                               ;$weekendHours; 01.04.2014 ;true
+                               ;$weekendHours; 01.05.2014 ;true
+                               ;$weekendHours; 09.05.2014 ;true
+                               ;$weekendHours; 20.05.2014 ;true
+                               ;$weekendHours; 03.10.2014 ;true
+                               ;$weekendHours; 25.12.2014 ;true
+                               ;$weekendHours; 26.12.2014 ;true
+
+INSERT_UPDATE PointOfService;name[unique=true];displayName;type(code);latitude;longitude;geocodeTimestamp[dateformat=dd-MM-yyyy];address(&addrID);basestore(uid)[default=$storeUid];openingSchedule(code)
+                            ;JW01;Schuhhaus SIEMES;STORE;48.3857477;10.8837011;29-04-2011;eu_warehouse_JW01;;$standardHours
+                            ;JW02;JW Berlin, ALEXA Shopping Center;STORE;52.519903;13.4148;29-04-2011;eu_warehouse_JW02;;$standardHours
+
+
+INSERT_UPDATE Address;&addrID;streetname;town;country(isocode);postalcode[unique=true];phone1; email; fax;owner(PointOfService.name)[unique=true]
+
+                     ;eu_warehouse_JW01;Dieselstr. 6;Augsburg;DE;86154;(+49) 821 21939657;info@siemes.de;(+49) 1805 101513;JW01
+                     ;eu_warehouse_JW02;Grunerstraße 20;Berlin;DE;10179;(+49) 30 24639995;store.berlin-alexa@jack-wolfskin.com;(+49) 30 24639996;JW02
