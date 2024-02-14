@@ -4,7 +4,8 @@
     <title>Client IP Address Detector</title>
     <script>
         function getIPAddress() {
-            // Using a third-party service to get the IP address
+            
+			// Using a third-party service to get the IP address for testing 
             fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
             .then(data => {
@@ -14,6 +15,7 @@
                 console.error('Error:', error);
                 document.getElementById('ipAddress').innerText = "Failed to retrieve IP address.";
             });
+			// Using a third-party service to get the IP address testing done
         }
     </script>
 </head>
