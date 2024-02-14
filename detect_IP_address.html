@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Client IP Address Detector</title>
+    <script>
+        function getIPAddress() {
+            // Using a third-party service to get the IP address
+            fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ipAddress').innerText = "Your IP Address: " + data.ip;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('ipAddress').innerText = "Failed to retrieve IP address.";
+            });
+        }
+    </script>
+</head>
+<body>
+    <h2>Client IP Address Detector</h2>
+    <button onclick="getIPAddress()">Get My IP Address</button><br>
+    <div id="ipAddress"></div>
+</body>
+</html>
