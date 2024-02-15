@@ -1,3 +1,22 @@
 it has black yes
 or no tttt
 or yes
+User-Friendly Design: Ensure the layout is clean and easy to navigate, with clear labels and instructions.
+
+Product Summary: Display a summary of the items being purchased, including names, quantities, and prices.
+
+Shipping Information: Collect the customer's shipping address, along with any special instructions or delivery preferences.
+
+Billing Information: Gather the customer's billing address, and provide options for different payment methods (credit/debit card, PayPal, etc.).
+
+Order Review: Allow customers to review their order before finalizing the purchase, including the total cost (including taxes and shipping fees).
+
+Promo Code/Input Field: If applicable, include a field for customers to enter promo codes or discount vouchers.
+
+Security Assurance: Clearly communicate that the checkout process is secure, and provide any relevant security badges or SSL certifications.
+
+Guest Checkout Option: Offer the option for customers to checkout as guests, without requiring them to create an account.
+
+Order Confirmation: After the purchase is completed, display a confirmation message or send an email confirmation with details of the order and estimated delivery date.
+
+Support Information: Include contact information or links to customer support resources in case customers have questions or encounter issues during checkout.
